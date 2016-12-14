@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html long="zh-en">
+<head>
+    <meta charset="utf-8">
+	<title>个人投资网站</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        body{
+            padding-top: 54px;
+            background-color: #888;
+        }
+        .navbar-brang img{
+            width: 50px;
+            height: 50px;
+        }
+        #nav-pdma li a{
+            padding: 10px;
+            margin-top: 6px;
+        }
+        /*主体部分*/
+        .panel-a{
+            background-color: #777777;
+            padding: 60px 60px;
+            color: #aaa;
+        }
+        .panel-b{
+            color: #777777;
+            padding: 60px 60px;
+            border-top: 1px solid #777777;
+            background-color: #d7d7d7;
+        }
+        .panel-b .list-inline li{
+            margin-top: 36px;
+        }
+        #formStyle .form-group{
+            font-size: 1.8em;
+            padding: 8px 2px;
+            border-bottom: 1px solid #777777;
+        }
+        #formStyle .form-group input{
+            outline: none;
+            resize:none;
+            background-color: #d7d7d7;
+            border-width: 0;
+            border: none;
+        }
+        #formStyle .form-group textarea{
+            outline: none;
+            padding: 20px 4px;
+            background-color: #d7d7d7;
+            border-width: 0;
+        }
+        #formStyle button{
+            font-size: 1.4em;
+            font-weight: 700;
+            background-color: #e7e5e5;
+        }
+        /*input的placeholder默认字体颜色*/
+        :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+            color: #d7d7d7; opacity:1;
+        }
+        ::-moz-placeholder { /* Mozilla Firefox 19+ */
+            color: #d7d7d7;opacity:1;
+        }
+        input:-ms-input-placeholder{
+            color: #d7d7d7;opacity:1;
+        }
+        input::-webkit-input-placeholder{
+            color: #d7d7d7;opacity:1;
+        }
+        /*hr条*/
+        .hrbar{
+            max-width: 512px;
+            border: 2px solid #ffffff;
+            text-align: right;
+        }
+        /*底部样式*/
+        footer{
+            color: #ffffff;
+            background-color: #d7d7d7;
+            box-shadow: 1px 1px 5px #000;
+            padding-top: 25px;
+        }
+        .footer_bot{
+            margin-top: 25px;
+            padding: 10px 0;
+            background-color: #722872;
+        }
+       .icon-radius{
+           padding: 6px;
+           border: 1px solid #ffffff;
+           border-radius:50%;
+       }
+        @font-face {
+            font-family: 'icomoon';
+            src:  url('fonts/icomoon.eot?k52aav');
+            src:  url('fonts/icomoon.eot?k52aav#iefix') format('embedded-opentype'),
+            url('fonts/icomoon.ttf?k52aav') format('truetype'),
+            url('fonts/icomoon.woff?k52aav') format('woff'),
+            url('fonts/icomoon.svg?k52aav#icomoon') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        }
+        .icomoon{
+            /* use !important to prevent issues with browser extensions that change fonts */
+            font-family: 'icomoon' !important;
+            speak: none;
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+            text-transform: none;
+            line-height: 1;
+
+            /* Better Font Rendering =========== */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+    </style>
+</head>
+<body>
+   <!--头部-->
+     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+         <div class="container">
+             <div class="navbar-header">
+                 <button class="navbar-toggle" data-target="#demo-navbar" type="button">
+                     <span class="icon-bar"></span>
+                     <span class="icon-bar"></span>
+                 </button>
+                 <a class="navbar-brang" href="#"><img src="imag/qlip.png" alt="logo"></a>
+             </div>
+             <div class="collapse navbar-collapse pull-right" id="demo-navbar">
+                 <ul class="nav navbar-nav" id="nav-pdma">
+                     <li class="active"><a href="#">ABOUT</a></li>
+                     <li><a href="#">PORTFOLIO</a></li>
+                     <li><a href="#">CONTACT</a></li>
+                 </ul>
+             </div>
+         </div>
+     </nav>
+     <!--内容主题部分 -->
+    <div class="container">
+        <div class="row panel-a">
+            <div class="col-md-8" style="text-align: right">
+                <h4>Front-End Developer and UX/UI designer, with practical experience
+                    in project management, branding strategy, and creative direction;
+                    devoted to functional programming and information architecture.
+                </h4>
+                <hr class="divider hrbar" style=" margin-right: 0;">
+                <h3>Web Developer - User Experience Designer - Graphic Artist</h3>
+            </div>
+            <div class="col-md-4 text-center">
+                <img class="img-circle" src="imag/chrome-logo-small.jpg" alt="avatar">
+            </div>
+        </div>
+        <div class="panel-b text-center row">
+            <h2>Portfolio</h2>
+            <hr class="hrbar" style="border: 2px solid #777">
+            <ul class="list-inline">
+                <li><img class="img-responsive" src="imag/YMCA-Realtor-Donation-3.jpg" alt="YMCA"></li>
+                <li><img class="img-responsive" src="imag/webcaballero.jpg" alt="webcaballero"></li>
+                <li><img class="img-responsive" src="imag/webmarqas.jpg" alt="webmarqas"></li>
+                <li><img class="img-responsive" src="imag/webbrandaxis.jpg" alt="webbrandaxis"></li>
+                <li><img class="img-responsive" src="imag/panacea1.jpg" alt="panacea1"></li>
+                <li><img class="img-responsive" src="imag/webgatomalo.jpg" alt="webgatomalo"></li>
+            </ul>
+        </div>
+        <div class="panel-b row">
+              <h2 class="text-center">Portfolio</h2>
+              <hr class="hrbar" style="border: 2px solid #777">
+            <div class="col-md-6">
+                <form action="#" role="form" id="formStyle">
+                    <div class="form-group">
+                        <dt>
+                            <label for="username_1">Nnme</label>
+                        </dt>
+                          <dd>
+                              <input type="text" required="" id="username_1" placeholder="nama">
+                          </dd>
+                    </div>
+                    <div class="form-group">
+                        <dt>
+                            <label for="username_2">Email Address</label>
+                        </dt>
+                        <dd>
+                            <input type="email" required="" id="username_2" placeholder="Phone Number">
+                        </dd>
+                    </div>
+                    <div class="form-group">
+                        <dt>
+                            <label for="username_3">PhoneNumber</label>
+                        </dt>
+                        <dd>
+                            <input type="email" required="" id="username_3" placeholder="PhoneNumber">
+                        </dd>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" placeholder="Message"></textarea>
+                    </div>
+                    <button type="button" class="btn btn-default">Send</button>
+                </form>
+            </div>
+            <div class="col-md-6 text-left">
+                <h3>
+                    Want to get in touch with me? Be it to request more info about myself or my experience,
+                    to ask for my resume, tips on how to solve your sudoku, random questions about the universe
+                    and the meaning of life, or even if only for some nice Fika here in stunning Toronto...
+                    just feel free to drop me a line anytime.
+                </h3>
+                <h3 style="padding-top: 20px">
+                    I promise to reply A.S.A.P.
+                </h3>
+                <div>
+                    <h3 style="padding-top:200px" class="text-center">Note: No spam/soliciting pour moi, merci :)</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   <!--底部-->
+   <footer>
+     <div class=" container">
+         <div class="row ">
+             <div class="col-md-6 text-center">
+
+                     <h2>ABOUT THIS PAGE</h2>
+                     <h4>Made with <span class="icomoon">&#xe900;</span> andi <span class="icomoon">&#xe911;</span></h4>
+                     <h4>bya <a href="#" style="color: #755872">Justion Sane</a></h4>
+             </div>
+             <div class="col-md-6 text-center">
+                     <h2>AROUND THE WEB</h2>
+                    <p>
+                         <h3 class="icomoon" >
+                             <a href="#"><span class="icon-radius">&#xea96</span></a>
+                             <a href="#"><span class="icon-radius">&#xeaca</span></a>
+                             <a href="#"><span class="icon-radius">&#xeab0</span></a>
+                             <a href="#"><span class="icon-radius">&#xeaa5</span></a>
+                         </h3>
+                    </p>
+             </div>
+         </div>
+
+     </div>
+       <div class="footer_bot" style="text-align: center">
+           <h2>qlip@2016.AII Rights Reversed</h2>
+       </div>
+   </footer>
+  <!--Bootstray框架JS-->
+   <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+   <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+   <script src="/js/bootstrap.min.js"></script>
+   <script>
+       $(function(){
+           //搜索框文字效果
+           $("#formStyle input").focus(function(){
+               //获得焦点
+               $(this).addClass("focus");
+               if($(this).val()==this.defaultValue){
+                   $(this).val(" ");
+               }
+           }).blur(function(){
+               //挪开焦点
+               $(this).removeClass("focus");
+               if($(this).val()==" "){
+                   $(this).val(this.defaultValue);
+               }
+//                 按回车键
+           }).keyup(function(e){
+               if(e.which==13){
+                   alert("回车提交表单！");
+               }
+           })
+       })
+   </script>
+</body>
+</html>
