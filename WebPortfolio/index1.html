@@ -8,6 +8,7 @@
         body{
             padding-top: 54px;
             background-color: #888;
+            position: relative;
         }
         .navbar-brang img{
             width: 50px;
@@ -18,17 +19,24 @@
             margin-top: 6px;
         }
         /*主体部分*/
-        .panel-a{
+        #panel-a{
             background-color: #777777;
             padding: 60px 60px;
             color: #aaa;
         }
-        .panel-b{
+        #panel-b{
             color: #777777;
             padding: 60px 60px;
             border-top: 1px solid #777777;
             background-color: #d7d7d7;
         }
+        #panel-c{
+            color: #777777;
+            padding: 60px 60px;
+            border-top: 1px solid #777777;
+            background-color: #d7d7d7;
+        }
+
         .panel-b .list-inline li{
             margin-top: 36px;
         }
@@ -117,9 +125,9 @@
         }
     </style>
 </head>
-<body>
+<body >
    <!--头部-->
-     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+     <nav id="navbar-example" class="navbar navbar-default navbar-fixed-top" role="navigation">
          <div class="container">
              <div class="navbar-header">
                  <button class="navbar-toggle" data-target="#demo-navbar" type="button">
@@ -130,16 +138,16 @@
              </div>
              <div class="collapse navbar-collapse pull-right" id="demo-navbar">
                  <ul class="nav navbar-nav" id="nav-pdma">
-                     <li class="active"><a href="#">ABOUT</a></li>
-                     <li><a href="#">PORTFOLIO</a></li>
-                     <li><a href="#">CONTACT</a></li>
+                     <li><a href="#panel-a">ABOUT</a></li>
+                     <li><a href="#panel-b">PORTFOLIO</a></li>
+                     <li><a href="#panel-c">CONTACT</a></li>
                  </ul>
              </div>
          </div>
      </nav>
      <!--内容主题部分 -->
     <div class="container">
-        <div class="row panel-a">
+        <div  id="panel-a" class="section row">
             <div class="col-md-8" style="text-align: right">
                 <h4>Front-End Developer and UX/UI designer, with practical experience
                     in project management, branding strategy, and creative direction;
@@ -152,7 +160,7 @@
                 <img class="img-circle" src="imag/chrome-logo-small.jpg" alt="avatar">
             </div>
         </div>
-        <div class="panel-b text-center row">
+        <div id="panel-b" class="section text-center row">
             <h2>Portfolio</h2>
             <hr class="hrbar" style="border: 2px solid #777">
             <ul class="list-inline">
@@ -164,7 +172,7 @@
                 <li><img class="img-responsive" src="imag/webgatomalo.jpg" alt="webgatomalo"></li>
             </ul>
         </div>
-        <div class="panel-b row">
+        <div id="panel-c" class="section row">
               <h2 class="text-center">Portfolio</h2>
               <hr class="hrbar" style="border: 2px solid #777">
             <div class="col-md-6">
@@ -245,12 +253,12 @@
        </div>
    </footer>
   <!--Bootstray框架JS-->
-   <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-   <script src="/js/bootstrap.min.js"></script>
+   <script src="js/bootstrap.min.js"></script>
    <script>
        $(function(){
            //搜索框文字效果
+           $("body").scrollspy({target:'#demo-navbar'});
            $("#formStyle input").focus(function(){
                //获得焦点
                $(this).addClass("focus");
@@ -263,7 +271,7 @@
                if($(this).val()==" "){
                    $(this).val(this.defaultValue);
                }
-//                 按回车键
+             // 按回车键
            }).keyup(function(e){
                if(e.which==13){
                    alert("回车提交表单！");
