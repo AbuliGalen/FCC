@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>随机引用名言</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <style>
+        body{
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+        a{
+            color: #000;
+            text-decoration: blink;
+        }
+        .min-box{
+            margin: 0 auto;
+            margin-top: 40px;
+            padding: 40px;
+            border-radius: 4px;
+            width: 682px;
+            background-color: #ffffff;
+
+        }
+        .button{
+            display: inline-block;
+            color: #ffffff;
+            border-radius: 4px;
+            background-color: #2a6496;
+            height: 20px;
+            padding: 10px;
+            line-height: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+   <div class="box" >
+      <div class="min-box">
+          <!--json引用文字内容-->
+          <div class="quote-text">
+              <div style="text-align: center;font-weight: 600;font-size:1.75em;padding: 10px;">
+                  <i class="icomoon">&#xe977; </i>
+                  <span id="text"></span>
+              </div>
+              <div class="quote-author" style="text-align: right;line-height: 16px;">
+                  - <span id="author"></span>
+              </div>
+          </div>
+<!--按钮-->
+          <div style="margin-top: 16px">
+              <a href="href=https://twitter.com/intent/tweet" target="_blank" class="button icomoon" id="tweet-quote">&#xea96;</a>
+              <a href="#" class="button icomoon" id="tumblr-quote">&#xeab9;</a>
+              <a href="#" id="new-quote" class="button" style="float: right" onclick="turncolors()">New quote</a>
+          </div>
+      </div>
+       <!--底部-->
+       <div style="text-align: center">
+           <p>
+               by <a href="#">hezag</a>
+           </p>
+       </div>
+   </div>
+   <script>
+//         颜色变换
+       var colors = ['#16a085', '#27ae60', '#2c3e50', '#f39c12',
+           '#e74c3c', '#9b59b6', '#FB6964', '#342224', "#472E32",
+           "#BDBB99", "#77B1A9", "#73A857"];
+//文字引用地址
+     var url="http://api.forismatic.com/api/1.0/?method=getQuote&key=457653&format=jsonp&lang=en&jsonp=?";
+//使用数据
+     var getQuote = function(data){
+         $('#text').text(data.quoteText);
+         $('#author').text(data.quoteAuthor);
+         var quot = 'https://twitter.com/intent/tweet?text=' + data.quoteText + 'Author' + data.quoteAuthor;
+         if(data.quoteAuthor ===''){
+             data.quoteAuthor ='Unknown';
+         }
+         $("#tweet-quote").attr('href',quot);
+     };
+//绑定事件
+       $(document).ready(function(){
+           $.getJSON(url,getQuote,'jsonp');
+          turncolors();
+       });
+       $('#new-quote').click(function () {
+           $.getJSON(url,getQuote,'jsonp');
+       });
+//变换背景
+var n=0;
+function turncolors() {
+    if (n == (colors.length - 1))
+        n = 0;
+    n++;
+    document.bgColor = colors[n];
+}
+
+   </script>
+</body>
+</html>
