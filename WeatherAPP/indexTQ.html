@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>天气报告</title>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <style>
+        body{
+            background-color:#2aabd2;
+            color: #ffffff;
+        }
+        .header{
+            text-align: center;
+            font-weight: 600;
+        }
+        .info{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+  <div class="header">
+      <h1>Free C<i class="icon" style="position: relative;top: 15px;"></i>de Camp</h1>
+      <h1>Weather App</h1>
+  </div>
+<div class="info">
+    <div class="icon"></div>
+    <div id="temp"></div>
+    <div class="location"></div>
+    <div id="conditions"></div>
+    <div id="wind"></div>
+    <div id="postal"></div>
+</div>
+</body>
+<script>
+    $(document).ready(function () {
+        getLocation();
+        function getLocation() {
+            $.get("http://ipinfo.io",function(location){
+               // console.log(location);
+
+                $('.location')
+                        .append(location.city + ", ")
+                        .append(location.region + ",")
+                        .append(location.country);
+
+                var units = getUnits(location.country);
+                getWeather(location.loc, units);
+            },'jsonp');
+        }
+      function getWeather(loc,units) {
+          lat = loc.split(",")[0]
+          lon = loc.split(",")[1]
+
+          var weatherApiHrl = "http://api.openweathermap.org/data/2.5/weather?lat=" + lat +"&lon=" + lon +"&units=" + units +"&appid=e2db5b0453a25a492e87ad8b03046a7c";
+       //   console.log(weatherApiHrl);
+          $.get(weatherApiHrl,function(weather){
+            var windDir = convertWindDirection(weather.wind.deg);
+              var temperature =weather.main.temp;
+              var unitLabel;
+
+              if (units === "imperial"){
+                  unitLabel ="F";
+              }else{
+                  unitLabel ="C";
+              }
+//              判断是否是数字
+              temperature = parseFloat((temperature).toFixed(1));
+
+           //   console.log(weather);
+              $(".icon")
+                      .append("<img src='http://openweathermap.org/img/w/" + weather.weather[0].icon+".png'>");
+              $("#temp").append(temperature + " " +unitLabel);
+              $("#conditions").append(weather.weather[0].description);
+              $("#wind").append(windDir +" " + weather.wind.speed + "knots");
+              $("#postal").append(postal);
+          },"jsonp");
+      }
+      function convertWindDirection(dir) {
+          var rose =['N','NE','E','SE','S','SW','W','NW'];
+          var eightPoint = Math.floor(dir/45);
+          return rose[eightPoint];
+      }
+        function getUnits(country) {
+            var imperialCountries = ['US','BS','BZ','KY','PW'];
+            if (imperialCountries.indexOf(country) === -1){
+                var units = "metric";
+            }else{
+                units ="imperial";
+            }
+         //   console.log(country,units);
+            return units;
+        }
+    })
+</script>
+</html>
